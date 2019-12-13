@@ -1,14 +1,39 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center">Post  Work</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
-  </div>
+<ion-content color="">
+  <form [formGroup]="PostForm">
+    <ion-grid>
+      <ion-row color="justify-content-center">
+        <ion-col class="ion-align-self-center" size-md="6" size-lg="5" size-xs="12">
+          <div class="ion-text-center">
+            <h3>Include Some Details</h3>
+          </div>
+          <div class="ion-padding">
+
+            <ion-item>
+              <ion-input name="Name" formControlName="ItemName" type="text" placeholder="Item Name"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-input name="Model" formControlName="itemModel" type="text" placeholder="Items Model"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-textarea rows="2" cols="5"  formControlName="itemDiscription" placeholder="Enter any discription..."></ion-textarea>
+            </ion-item>
+
+          </div>
+          <div class="ion-padding">
+            <ion-button size="large" [disabled]="PostForm.invalid" (click)="save()" color="primary" type="submit"
+              expand="block">Post Work
+            </ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
 </ion-content>
