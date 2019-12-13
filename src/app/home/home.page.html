@@ -1,10 +1,23 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title class="ion-text-center">Post  Work</ion-title>
+    <ion-title class="ion-text-center">Post Work</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content color="">
+
+  <div class="center">
+    
+    <input type="file" *ngIf="!imageURL" (change)="fileChanged($event)" class="filebbtn" #filebtn />
+
+    <ion-button shape="round" color="primary" (click)="uploadFile()" *ngIf="!imageURL" fill="outline">Upoload File</ion-button>
+
+    <ion-card *ngIf="imageURL">
+      <img src="https://ucarecdn.com/{{imageURL}}/" />
+    </ion-card>
+  </div>
+
+  <!--Details of Discription starts here -->
   <form [formGroup]="PostForm">
     <ion-grid>
       <ion-row color="justify-content-center">
@@ -23,7 +36,8 @@
             </ion-item>
 
             <ion-item>
-              <ion-textarea rows="2" cols="5"  formControlName="itemDiscription" placeholder="Enter any discription..."></ion-textarea>
+              <ion-textarea rows="2" cols="5" formControlName="itemDiscription" placeholder="Enter any discription...">
+              </ion-textarea>
             </ion-item>
 
           </div>
