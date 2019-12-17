@@ -3,7 +3,10 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
 
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Http } from '@angular/http'
+import { Http } from '@angular/http';
+
+import { AngularFirestore } from '@angular/fire/firestore';
+import { firestore } from 'firebase/app';
 
 @Component({
   selector: 'app-home',
@@ -14,17 +17,41 @@ export class HomePage {
 
   imageURL: string
   PostForm: FormGroup;
-
+  
   constructor(private PostBuilder: FormBuilder,
-    public http: Http) { }
+    public http: Http,
+    public afstore:AngularFirestore,
+    ) { }
 
   @ViewChild('filebtn', { static: false }) filebtn
 
   uploadFile() {
     this.filebtn.nativeElement.click()
   }
+
   ngOnInit() {
     this.formInitializer();
+  }
+
+
+  createPost()
+  {
+    const image=this.imageURL
+    const uid= "APkAlAbW0WRvYyM077ssIhrzUyG2";
+
+    // post information
+   const Discription = {
+      ItemName: this.PostForm.controls.ItemName.value,
+      ItemModel: this.PostForm.controls.itemModel.value,
+      itemDiscription: this.PostForm.controls.itemDiscription.value
+    }
+
+    this.afstore.doc(`users/${uid}`).update({
+      posts: firestore.FieldValue.arrayUnion({
+        image,
+        Discription
+      })
+    })
   }
 
   fileChanged(event)
