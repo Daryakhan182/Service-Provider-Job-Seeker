@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  
+<ion-card *ngFor="let post of ((userPosts | async)?.posts)">
+  <ion-item>
+    <ion-img src="https://ucarecdn.com/{{ post.image }}/"></ion-img>
+  </ion-item>
+
+  <ion-card-content>
+    <p>{{post.Discription.ItemName}}</p>
+    <p>{{post.Discription.ItemModel}}</p>
+    <p>{{post.Discription.itemDiscription}}</p>
+  </ion-card-content>
+</ion-card>
+
+
+</ion-content>
