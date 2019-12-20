@@ -7,10 +7,11 @@
 <ion-content color="">
 
   <div class="center">
-    
+
     <input type="file" *ngIf="!imageURL" (change)="fileChanged($event)" class="filebbtn" #filebtn />
 
-    <ion-button shape="round" color="primary" (click)="uploadFile()" *ngIf="!imageURL" fill="outline">Upoload File</ion-button>
+    <ion-button shape="round" color="primary" (click)="uploadFile()" *ngIf="!imageURL" fill="outline">Upoload File
+    </ion-button>
 
     <ion-card *ngIf="imageURL">
       <img src="https://ucarecdn.com/{{imageURL}}/" />

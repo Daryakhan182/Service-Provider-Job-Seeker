@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import {AngularFirestore} from '@angular/fire/firestore'
 
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.page.html',
-  styleUrls: ['./profile.page.scss'],
+  selector: 'app-display-posts',
+  templateUrl: './display-posts.page.html',
+  styleUrls: ['./display-posts.page.scss'],
 })
-export class ProfilePage implements OnInit {
+export class DisplayPostsPage implements OnInit {
 
   userPosts
 
@@ -20,6 +20,5 @@ export class ProfilePage implements OnInit {
 
   ngOnInit() {
   }
-
 
 }

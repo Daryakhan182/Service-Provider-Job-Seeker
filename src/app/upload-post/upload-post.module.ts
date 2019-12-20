@@ -3,8 +3,9 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { UploadPostPageRoutingModule } from './upload-post-routing.module';
 
-import { HomePage } from './home.page';
+import { UploadPostPage } from './upload-post.page';
 
 @NgModule({
   imports: [
@@ -12,13 +13,8 @@ import { HomePage } from './home.page';
     FormsModule,
     ReactiveFormsModule,
     IonicModule,
-    RouterModule.forChild([
-      {
-        path: '',
-        component: HomePage
-      }
-    ])
+    UploadPostPageRoutingModule
   ],
-  declarations: [HomePage]
+  declarations: [UploadPostPage]
 })
-export class HomePageModule {}
+export class UploadPostPageModule {}
