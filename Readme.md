@@ -27,3 +27,27 @@
 ### Displaying all posts
 
 <img src="displayAllposts.PNG" width="350" height="400">
+
+### connected to service provider backend 
+### login and sign up actions performed
+### SignUp page
+
+<img src="signupPage.PNG" width="350" height="400">
+
+### signUp successfull
+
+<img src="signup succesfull.PNG" width="350" height="400">
+
+### login page
+
+<img src="loginPage.PNG" width="350" height="400">
+
+### login successfull
+
+<img src="login successfull.PNG" width="350" height="400">
+
+
+
+
+
+
