@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { UserService } from './../sdk/custom/user.service';
+import { UserService } from './../ManageServe/custom/user.service';
 import { FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,8 @@ import { FormGroup } from '@angular/forms';
 export class LoginPage implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
-              private userService: UserService) {}
+              private userService: UserService,
+              private router: Router) {}
 
   loginForm: FormGroup;
   loading = false;
@@ -29,6 +31,7 @@ export class LoginPage implements OnInit {
       data => {
         console.log('got response from server', data);
         this.loading = false;
+        this.router.navigateByUrl('/home-categories');
       },
       error => {
         this.loading = false;

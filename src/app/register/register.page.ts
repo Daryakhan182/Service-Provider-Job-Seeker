@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { FormGroup } from '@angular/forms';
 import { Subscription } from 'rxjs';
-import { UserService } from '../sdk/custom/user.service';
+import { UserService } from '../ManageServe/custom/user.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -31,7 +31,7 @@ export class RegisterPage implements OnInit {
       data => {
         console.log('got response from server', data);
         this.loading = false;
-        this.router.navigateByUrl('/home');
+        this.router.navigateByUrl('/home-categories');
       },
       error => {
         this.loading = false;
@@ -56,6 +56,9 @@ export class RegisterPage implements OnInit {
     });
   }
 
+
+  // this funtion compare the password with confirm passsword
+  // if not matches, confirm password lines remain red
   matchOtherValidator(otherControlName: string) {
     return (control: AbstractControl): { [key: string]: any } => {
       const otherControl: AbstractControl = control.root.get(otherControlName);
