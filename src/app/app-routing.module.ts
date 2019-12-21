@@ -12,6 +12,14 @@ const routes: Routes = [
   },
   {
     path: 'upload-post',loadChildren: () => import('./upload-post/upload-post.module').then( m => m.UploadPostPageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'register',
+    loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
   }
 ];
 
