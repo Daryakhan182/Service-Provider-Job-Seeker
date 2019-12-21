@@ -6,6 +6,9 @@ import { Http } from '@angular/http';
 
 import { AngularFirestore } from '@angular/fire/firestore';
 import { firestore } from 'firebase/app';
+import { Router } from '@angular/router';
+import {AlertController} from '@ionic/angular'
+
 
 @Component({
   selector: 'app-upload-post',
@@ -20,6 +23,9 @@ export class UploadPostPage implements OnInit {
   constructor(private PostBuilder: FormBuilder,
     public http: Http,
     public afstore: AngularFirestore,
+    public router: Router,
+    public alert: AlertController,
+
   ) { }
 
   @ViewChild('filebtn', { static: false }) filebtn
@@ -49,6 +55,10 @@ export class UploadPostPage implements OnInit {
         Discription
       })
     })
+    this.showalert("Successfull","Post uploaded")
+
+    this.router.navigate(['/display-posts']);
+
   }
 
   fileChanged(event) {
@@ -61,6 +71,7 @@ export class UploadPostPage implements OnInit {
     this.http.post('https://upload.uploadcare.com/base/', data).
       subscribe(event => {
         console.log(event)
+
         this.imageURL = event.json().file
       }
       )
@@ -73,5 +84,15 @@ export class UploadPostPage implements OnInit {
       itemModel: [null, [Validators.required]],
       itemDiscription: [null, [Validators.required]]
     });
+  }
+
+  async showalert(header:string, message:string)
+  {
+      const alert= await this.alert.create({
+        header,
+        message,
+        buttons: ["ok"]
+      })
+      await alert.present()
   }
 }
