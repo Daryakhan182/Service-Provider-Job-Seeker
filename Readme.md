@@ -11,14 +11,17 @@
 
 <img src="pics-upload.PNG" width="350" height="400">
 
+### post work button enabled
 <img src="enable post button.PNG" width="350" height="400">
 
+### images uploaded to uploadcare
 <img src="uploadcare.PNG" width="350" height="400">
 
 ### image url stored to firestore along side with image discription
 
 <img src="saving post to firestore.PNG" width="350" height="400">
 
+### firestore collection with uids
 <img src="uid with collection.PNG" width="350" height="400">
 
 ### Displaying all posts
