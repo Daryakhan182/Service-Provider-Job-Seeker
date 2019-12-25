@@ -46,7 +46,27 @@
 
 <img src="login successfull.PNG" width="350" height="400">
 
+### User can load all books, delete, edit and add only if loged in
+### User is login
+### load all books
 
+<img src="BookAdded.PNG" width="350" height="400">
+
+### book added
+
+<img src="addBook.PNG" width="350" height="400">
+
+### Edit book
+
+<img src="Editable.PNG" width="350" height="400">
+
+### delete book
+
+<img src="deletebook.PNG" width="350" height="400">
+
+### Responses from backend in browsers
+
+<img src="browsers responses.PNG" width="350" height="400">
 
 
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { UserService } from './../ManageServe/custom/user.service';
+import { AuthService } from './../ManageServe/core/auth.service';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -13,6 +14,7 @@ export class LoginPage implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
               private userService: UserService,
+              private authService: AuthService,
               private router: Router) {}
 
   loginForm: FormGroup;
@@ -31,6 +33,7 @@ export class LoginPage implements OnInit {
       data => {
         console.log('got response from server', data);
         this.loading = false;
+        this.authService.saveTokenToStorage(data.token);
         this.router.navigateByUrl('/home-categories');
       },
       error => {

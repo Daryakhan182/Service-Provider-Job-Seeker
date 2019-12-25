@@ -1,5 +1,7 @@
 {
   "name": "Service_Provider_&_Job_Seeker",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
